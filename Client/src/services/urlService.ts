@@ -1,5 +1,7 @@
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5071'
+
 export async function apiRequest(method: string, body?: FormData | null, id?: string | number): Promise<any> {
-  let url = 'http://localhost:5071/shorten'
+  let url = `${API_BASE_URL}/shorten`
   if (id && (method === 'DELETE' || method === 'PUT' || method === 'PATCH')) {
     url = `${url}/${id}`
   }
